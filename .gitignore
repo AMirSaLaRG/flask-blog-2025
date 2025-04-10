@@ -172,3 +172,4 @@ blog.db
 *.db
 /instance/blog.db
 /instance
+instance/
