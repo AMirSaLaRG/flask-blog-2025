@@ -170,4 +170,4 @@ cython_debug/
 
 blog.db
 *.db
-**/blog.db
+/instance/blog.db
