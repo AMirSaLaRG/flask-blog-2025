@@ -171,7 +171,6 @@ cython_debug/
 blog.db
 *.db
 
-/instance
 
 secret.txt
 /instance/blog.db
