@@ -32,7 +32,7 @@ db = SQLAlchemy(model_class=Base)
 app = Flask(__name__)
 url_posts = "https://api.npoint.io/1ab87ffa3de8062770c7"
 # configure the SQLite database, relative to the app instance folder
-app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///blog.db"
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DB_URI", "sqlite:///blog.db")
 # initialize the app with the extension
 ckeditor = CKEditor(app)
 db.init_app(app)
@@ -265,4 +265,4 @@ def logout():
 
 
 if __name__ == "__main__":
-    app.run(debug=True, port=5001)
+    app.run(debug=False)
