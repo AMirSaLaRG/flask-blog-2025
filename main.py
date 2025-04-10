@@ -18,6 +18,7 @@ from datetime import datetime
 from forms import RegisterForm, PostForm, LogIn, CommentForm
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import LoginManager, login_user, UserMixin, logout_user, current_user
+import os
 
 
 
@@ -36,7 +37,7 @@ app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///blog.db"
 ckeditor = CKEditor(app)
 db.init_app(app)
 bootstrap = Bootstrap5(app)
-app.config['SECRET_KEY'] = "1234"
+app.config['SECRET_KEY'] = os.environ.get('FLASK_KEY')
 class Posts(db.Model):
     id: Mapped[int] = mapped_column(primary_key=True)
     date: Mapped[str] = mapped_column(nullable=True, default="unknow")
